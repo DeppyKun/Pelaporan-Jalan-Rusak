@@ -30,9 +30,10 @@ class LaporanJalan extends Model
 
     public function koordinat()
     {
-        return $this->hasOne(Koordinat::class, 'id');
+        return $this->hasOne(Koordinat::class, 'id', 'id_koordinat');
     }
-
+       
+    
 
     public static function booted()
     {

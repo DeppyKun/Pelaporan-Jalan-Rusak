@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\LaporanJalanExporter;
 use App\Filament\Resources\LaporanJalanResource\Pages;
 use App\Filament\Resources\LaporanJalanResource\RelationManagers;
 use App\Models\LaporanJalan;
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Contracts\Support\Htmlable;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Actions\ExportAction;
 
 class LaporanJalanResource extends Resource
 {
@@ -124,6 +126,9 @@ class LaporanJalanResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
+            ])
+            ->headerActions([
+                ExportAction::make()->exporter(LaporanJalanExporter::class)
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

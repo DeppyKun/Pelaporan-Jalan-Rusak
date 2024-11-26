@@ -17,6 +17,8 @@ class Koordinat extends Model
     // Relasi ke LaporanJalan
     public function laporanJalan()
     {
-        return $this->belongsTo(LaporanJalan::class);
+        return $this->belongsTo(LaporanJalan::class, 'id', 'id_koordinat');
     }
+       
+    
 }
